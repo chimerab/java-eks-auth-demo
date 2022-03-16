@@ -64,7 +64,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.derek.example.s3.Main</mainClass>
+                                    <mainClass>com.derek.example.authdemo.Main</mainClass>
                                 </transformer>
                             </transformers>
 

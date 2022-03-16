@@ -1,4 +1,4 @@
-package com.derek.example.s3;
+package com.derek.example.authdemo;
 
 import com.amazonaws.services.kms.AWSKMS;
 import com.amazonaws.services.kms.AWSKMSClientBuilder;
@@ -15,7 +15,6 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.Bucket;
-import com.amazonaws.services.kms.model.DataKeySpec;
 
 import java.nio.ByteBuffer;
 import java.util.Base64;
