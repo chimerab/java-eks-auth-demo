@@ -32,38 +32,43 @@ public class Main {
                 .build();
         // Generate a data key
 
-        GenerateDataKeyRequest dataKeyRequest = new GenerateDataKeyRequest();
-        dataKeyRequest.setKeyId(keyId);
-        dataKeyRequest.withKeySpec(keySpec);
-        //dataKeyRequest.setKeySpec(keySpec);
+        try {
+            GenerateDataKeyRequest dataKeyRequest = new GenerateDataKeyRequest();
+            dataKeyRequest.setKeyId(keyId);
+            dataKeyRequest.withKeySpec(keySpec);
+            //dataKeyRequest.setKeySpec(keySpec);
 
-        GenerateDataKeyResult dataKeyResult = kmsClient.generateDataKey(dataKeyRequest);
+            GenerateDataKeyResult dataKeyResult = kmsClient.generateDataKey(dataKeyRequest);
 
-        ByteBuffer plaintextKey = dataKeyResult.getPlaintext();
+            ByteBuffer plaintextKey = dataKeyResult.getPlaintext();
 
-        ByteBuffer encryptedKey = dataKeyResult.getCiphertextBlob();
+            ByteBuffer encryptedKey = dataKeyResult.getCiphertextBlob();
 
-        System.out.printf(
-                "Successfully generated an encrypted data key: %s%n",
-                Base64.getEncoder().encodeToString(encryptedKey.array())
-        );
+            System.out.printf(
+                    "Successfully generated an encrypted data key: %s%n",
+                    Base64.getEncoder().encodeToString(encryptedKey.array())
+            );
 
-        System.out.printf(
-                "Successfully generated an plantext data key: %s%n",
-                Base64.getEncoder().encodeToString(plaintextKey.array())
-        );
+            System.out.printf(
+                    "Successfully generated an plantext data key: %s%n",
+                    Base64.getEncoder().encodeToString(plaintextKey.array())
+            );
 
-        DecryptRequest req = new DecryptRequest().withCiphertextBlob(encryptedKey);
-        ByteBuffer plainText = kmsClient.decrypt(req).getPlaintext();
+            DecryptRequest req = new DecryptRequest().withCiphertextBlob(encryptedKey);
+            ByteBuffer plainText = kmsClient.decrypt(req).getPlaintext();
 
-        System.out.printf(
-                "Successfully decrypt data key with kms: %s%n",
-                Base64.getEncoder().encodeToString(plainText.array())
-        );
+            System.out.printf(
+                    "Successfully decrypt data key with kms: %s%n",
+                    Base64.getEncoder().encodeToString(plainText.array())
+            );
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     public static void performS3(){
+
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.AP_NORTHEAST_1)
