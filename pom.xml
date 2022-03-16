@@ -104,7 +104,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <repository>901618095291.dkr.ecr.ap-northeast-1.amazonaws.com/javaexample</repository>
+                    <repository>xxxxx.dkr.ecr.ap-northeast-1.amazonaws.com/javaexample</repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
