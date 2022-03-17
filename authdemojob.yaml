@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: auth-demo
+spec:
+  template:
+    metadata:
+      labels:
+        app: auth-demo
+    spec:
+      serviceAccountName: iam-test
+      containers:
+        - name: auth-demo
+          image: xxxxxx.dkr.ecr.ap-northeast-1.amazonaws.com/javaexample:7.0
+      restartPolicy: Never
