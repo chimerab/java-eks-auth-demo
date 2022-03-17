@@ -23,6 +23,7 @@ From the debug output if you see below similar output means the java apps have a
 
 DEBUG com.amazonaws.request -  Sending Request: POST https://sts.amazonaws.com / Parameters: ({"Action":["AssumeRoleWithWebIdentity"],"Version":["2011-06-15"],"RoleArn":["arn:aws:iam::xxxxxxx:role/eksctl-addon-iamserviceaccount"]
 ...
+  
 DEBUG com.amazonaws.auth.AWSCredentialsProviderChain -  Loading credentials from WebIdentityTokenCredentialsProvider
 
 
