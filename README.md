@@ -26,6 +26,4 @@ DEBUG com.amazonaws.request -  Sending Request: POST https://sts.amazonaws.com /
   
 DEBUG com.amazonaws.auth.AWSCredentialsProviderChain -  Loading credentials from WebIdentityTokenCredentialsProvider
 
-
-
-https://docs.aws.amazon.com/zh_cn/eks/latest/userguide/iam-roles-for-service-accounts-minimum-sdk.html
+From the CloudTrail->Event history, search "AssumeRoleWithWebIdentity" as Event Name you should find the entry with "system:serviceaccount:default:<service account name>" as User name
