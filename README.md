@@ -19,6 +19,12 @@ https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.htm
 7. pods=$(kubectl get pods --selector=job-name=auth-demo --output=jsonpath='{.items[*].metadata.name}')
 8. kubectl logs $pods
 
+Note:  
+  In case you are using private EKS cluster, you might need add below annotation to autodemojob.yaml to make sure the sts request goto regional endpoint.  
+  
+  > eks.amazonaws.com/sts-regional-endpoints: "true"
+  
+  
 From the debug output if you see below similar output means the java apps have authticate with service account successful. 
 
 DEBUG com.amazonaws.request -  Sending Request: POST https://sts.amazonaws.com / Parameters: ({"Action":["AssumeRoleWithWebIdentity"],"Version":["2011-06-15"],"RoleArn":["arn:aws:iam::xxxxxxx:role/eksctl-addon-iamserviceaccount"]
