@@ -28,8 +28,7 @@ Note:
 From the debug output if you see below similar output means the java apps have authticate with service account successful. 
 
 > DEBUG com.amazonaws.request -  Sending Request: POST https://sts.amazonaws.com / Parameters: ({"Action":["AssumeRoleWithWebIdentity"],"Version":["2011-06-15"],"RoleArn":["arn:aws:iam::xxxxxxx:role/eksctl-addon-iamserviceaccount"]. 
-  
-DEBUG com.amazonaws.auth.AWSCredentialsProviderChain -  Loading credentials from WebIdentityTokenCredentialsProvider
+>DEBUG com.amazonaws.auth.AWSCredentialsProviderChain -  Loading credentials from WebIdentityTokenCredentialsProvider. 
 
 From the CloudTrail->Event history, search "AssumeRoleWithWebIdentity" as Event Name you should find the entry with 
  "system:serviceaccount:default:[service-account-name]" as User name
