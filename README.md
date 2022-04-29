@@ -19,7 +19,7 @@ https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.htm
 7. pods=$(kubectl get pods --selector=job-name=auth-demo --output=jsonpath='{.items[*].metadata.name}')
 8. kubectl logs $pods
 
-Note:  
+** Note:  
   In case you are using private EKS cluster, you might need add below annotation to autodemojob.yaml to make sure the sts request goto regional endpoint.  
   
   > eks.amazonaws.com/sts-regional-endpoints: "true"
